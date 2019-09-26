@@ -8,6 +8,6 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 
-### 如果真的需要，联系方式
+### If it's necessary, contact me:
 
-Email:3160103013@zju.edu.cn
+Email: 3160103013@zju.edu.cn
