@@ -7,6 +7,6 @@
 
 ### If you want to contact me
 
-Email: [3160103013@zju.edu.cn](3160103013@zju.edu.cn)
+Email: [3160103013@zju.edu.cn]()
 
 Weibo: [姽婳城现任城主](https://weibo.com/OnlyKathleenQueen)
