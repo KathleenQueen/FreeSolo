@@ -1,6 +1,8 @@
 ## Welcome to Kathleen's Pages
 
-如果想获得良好的浏览体验，请使用谷歌浏览器打开所有链接
+如果想获得良好的浏览体验，
+
+请使用谷歌浏览器打开本网页及所有链接。
 
 [Studying](https://kathleenqueen.work/studying/studying.html) 
 
