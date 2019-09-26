@@ -1,5 +1,6 @@
 ## Welcome to Kathleen's Pages
-如果想获得良好的浏览体验，请使用谷歌浏览器打开所有链接
+
+<table><tr><td bgcolor=orange>如果想获得良好的浏览体验，请使用谷歌浏览器打开所有链接</td></tr></table>
 
 [Studying](studying/studying.html) 
 
