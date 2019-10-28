@@ -4,11 +4,11 @@
 
 请使用谷歌浏览器打开本网页及所有链接。
 
-[Studying](https://kathleenqueen.work/studying) 
+[Studying](./studying) 
 
-[Life](https://kathleenqueen.work/life)
+[Life](./life)
 
-![媚者无疆](https://kathleenqueen.work/picture/meiZheWuJiang.png)
+![媚者无疆](./picture/meiZheWuJiang.png)
 ### If you want to contact me
 
 Email: [3160103013@zju.edu.cn]()
