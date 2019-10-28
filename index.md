@@ -4,7 +4,7 @@
 
 请使用谷歌浏览器打开本网页及所有链接。
 
-[Studying](https://kathleenqueen.work/studying/studying.html) 
+[Studying](https://kathleenqueen.work/studying) 
 
 [Life](https://kathleenqueen.work/life)
 
