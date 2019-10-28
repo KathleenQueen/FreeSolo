@@ -6,7 +6,7 @@
 
 [Studying](https://kathleenqueen.work/studying/studying.html) 
 
-[Life](https://kathleenqueen.work/life/life.html)
+[Life](https://kathleenqueen.work/life)
 
 ![媚者无疆](https://kathleenqueen.work/picture/meiZheWuJiang.png)
 ### If you want to contact me
