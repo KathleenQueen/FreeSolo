@@ -26,10 +26,9 @@ function average(){
     for(i = 0; i<this.English.length; ++i){
                 total3 +=this.English[i];
     }
-    var a = [total1, total2, total3];
-    return a / this.Chinese.length;
+    var a = [total1/this.Chinese.length, total2/this.Chinese.length, total3/this.Chinese.length];//对列求和取平均
+    return a;
 }
-
 var thisTerm = new grades();
 var student1 = [82, 83, 84];
 var student2 = [89, 90, 91];
@@ -37,4 +36,4 @@ var student3 = [85, 90, 95];
 thisTerm.add(student1);
 thisTerm.add(student2);
 thisTerm.add(student3);
-print(thisTerm.average());
+console.log(thisTerm.average());
