@@ -10,7 +10,7 @@ Array.matrix=function(numrows,numcols,initial){
         arr[i]=columns;
     }
     return arr;
-}
+};
 function weekTemps(){
     this.dataStore=[];//列：第几周，周几，温度
      this.add=add;
@@ -58,7 +58,7 @@ weekdata.add([8,4,19]);
 weekdata.add([8,5,20]);
 weekdata.add([8,6,21]);
 weekdata.add([8,7,23]);
-console.log(weekdata.dataStore.length)
+//console.log(weekdata.dataStore.length);
 var average1=weekdata.average(7);
 var average2=weekdata.average(8);
 var average3=weekdata.average(0);
