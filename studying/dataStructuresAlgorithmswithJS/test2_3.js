@@ -12,40 +12,57 @@ Array.matrix=function(numrows,numcols,initial){
     return arr;
 }
 function weekTemps(){
-    this.dataStore=Array.matrix(0,0,0);//列：第几周，周几，温度
+    this.dataStore=[];//列：第几周，周几，温度
      this.add=add;
      this.average=average;
 }
 function add(str) {
-    this.dataStore.push(str)
+    this.dataStore.push(str);
 }
+
 function average(num) {
-    var total = 0;
-    var count = 0;
-    if (num == 0) {
-        for (i = 0; i<this.dataStore.length;i+=3) {
-            total += this.dataStore[i][2];
-            return total / this.dataStore.length;
-        }
-    }
-    else {
-        for (i = 0; i<this.dataStore.length; i+=3) {//在add次序有问题时依旧可以通过完整遍历得到正确结果
-            if (this.dataStore[i][0] == num) {
-                total += this.dataStore[i][2];
+    var total=0;var count=0;
+    if(num){
+        for(var i=0;i<this.dataStore.length;++i){
+            if(this.dataStore[i][0]==num){
+                total+=this.dataStore[i][2];
                 count++;
             }
-            return total / count;
         }
+        return total/count;
     }
-}
+    else{
+        for(var i=0;i<this.dataStore.length;++i){
+            // console.log(this.dataStore[i])
+            total+=this.dataStore[i][2];
+            // console.log(total)
+        }
+        return total/this.dataStore.length;
+        }
+
+    }
+
+
 var weekdata=new weekTemps();
-var data=[[7,1,15],[7,2,16],[7,3,14],[7,4,17],[7,5,16],[7,6,15],[7,7,16],[8,1,18],[8,2,19],[8,3,19],[8,4,19],[8,5,20],[8,6,21],[8,7,23]];
-weekdata.add(data);
-console.log(weekdata.dataStore);
+weekdata.add([7,1,15]);
+weekdata.add([7,2,16]);
+weekdata.add([7,3,14]);
+weekdata.add([7,4,17]);
+weekdata.add([7,5,16]);
+weekdata.add([7,6,15]);
+weekdata.add([7,7,16]);
+weekdata.add([8,1,18]);
+weekdata.add([8,2,19]);
+weekdata.add([8,3,19]);
+weekdata.add([8,4,19]);
+weekdata.add([8,5,20]);
+weekdata.add([8,6,21]);
+weekdata.add([8,7,23]);
+console.log(weekdata.dataStore.length)
 var average1=weekdata.average(7);
 var average2=weekdata.average(8);
 var average3=weekdata.average(0);
-console.log(average1,average2,average3);
+console.log(average1.toFixed(2),average2.toFixed(2),average3.toFixed(2));
 
 
 
