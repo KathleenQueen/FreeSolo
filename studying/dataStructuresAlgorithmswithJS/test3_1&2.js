@@ -145,11 +145,10 @@ console.log(putInBig.dataStore.sort(compare));
 var b="Watermelon";//字母
 var Fruits=["Banana","Peach","Orange","Apple"];
 putInBig.clear();
-console.log(putInBig.dataStore);
 for(var i=0;i<Fruits.length;++i){
     putInBig.append(Fruits[i]);
 }
-console.log(putInBig);
+console.log(putInBig.dataStore)
 putsBig(putInBig,b);
 console.log(putInBig.dataStore);
 console.log(putInBig.dataStore.sort());
