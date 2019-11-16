@@ -37,3 +37,5 @@ thisTerm.add(student1);
 thisTerm.add(student2);
 thisTerm.add(student3);
 console.log(thisTerm.average());
+
+//finished
