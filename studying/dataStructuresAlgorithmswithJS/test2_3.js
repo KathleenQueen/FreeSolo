@@ -64,7 +64,4 @@ var average2=weekdata.average(8);
 var average3=weekdata.average(0);
 console.log(average1.toFixed(2),average2.toFixed(2),average3.toFixed(2));
 
-
-
-
-
+//finished

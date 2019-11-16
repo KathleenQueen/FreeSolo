@@ -10,3 +10,5 @@ function concat(accumulatedString,item){
 var letter2=["g","i","r","l"];
 var letter3=letter2.reduce(concat);
 console.log(letter3);
+
+//finished

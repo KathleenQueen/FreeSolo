@@ -4,3 +4,5 @@ words.sort();
 print(words);
 words.reverse();
 print(words);
+
+//finished
