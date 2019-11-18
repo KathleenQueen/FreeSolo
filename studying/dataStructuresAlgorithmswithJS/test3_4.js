@@ -2,28 +2,30 @@
 
 // fs.readFile( ) ：异步读取文件内容
 // fs.writeFile ( ): 异步写数据到文件中
-var Data=[];
-const fs = require('fs');
-var filename="films.txt";
-function Dataputs(file){
-fs.readFile(file,'utf-8',function(err,data){
-    if(err){
-        console.error(err);
-    }
-    else{
-        Data=data.split("\n");
-        for(var i =0; i < Data.length; ++i){
-            Data[i]=Data[i].trim();
-        }
-    }
-    console.log(Data);
-    return Data;
-});
+var fs = require("fs");
+var readLine = require("readline");
+
+/**
+ * 按行读取文件内容
+ * @param fReadName 文件名路径
+ * @param cb 回调函数
+ * @return 字符串数组
+ */
+function readFileToArr(fReadName, cb) {
+
+    var arr = [];
+    var readObj = readLine.createInterface({
+        input: fs.createReadStream(fReadName)
+    });
+
+    readObj.on('line', function (line) {
+        arr.push(line);
+    });
+    readObj.on('close', function () {
+        console.log('readLine close....');
+        cb(arr);
+    });
 }
-Dataputs(filename);
-
-
-
 function List(){
     //属性
     this.listSize = 0;
@@ -78,7 +80,6 @@ function length() {
 function toString() {
     return this.dataStore;
 }
-
 //向列表插入新元素
 function insert(element, after) {
     let insertPos = this.find(after);
@@ -168,9 +169,13 @@ function checkOut(name, movie, movieList, customerList){
         console.log(movie +" is not available.");
     }
 }
-
 var movieList =new List();
 var customers =new List();
-for(var i =0; i < movies.length;++i){
-    movieList.append(movies[i]);
-}
+readFileToArr('films.txt', function (arr) {
+    console.log(arr);
+    for(var i =0; i < arr.length;++i){
+        movieList.append(arr[i]);
+    }
+    console.log(movieList);
+});
+
