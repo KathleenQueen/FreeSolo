@@ -1,31 +1,5 @@
 //修改本章的影碟租赁程序，当一部影片检出后，将其加入一个已租影片列表。每当有客户检出一部影片，都显示该列表中的内容。
 
-// fs.readFile( ) ：异步读取文件内容
-// fs.writeFile ( ): 异步写数据到文件中
-var fs = require("fs");
-var readLine = require("readline");
-
-/**
- * 按行读取文件内容
- * @param fReadName 文件名路径
- * @param cb 回调函数
- * @return 字符串数组
- */
-function readFileToArr(fReadName, cb) {
-
-    var arr = [];
-    var readObj = readLine.createInterface({
-        input: fs.createReadStream(fReadName)
-    });
-
-    readObj.on('line', function (line) {
-        arr.push(line);
-    });
-    readObj.on('close', function () {
-        console.log('readLine close....');
-        cb(arr);
-    });
-}
 function List(){
     //属性
     this.listSize = 0;
@@ -143,7 +117,6 @@ function moveTo(position) {
 function getElement() {
     return this.dataStore[this.pos];
 }
-
 function displayList(list){
     for(list.front(); list.currPos()< list.length(); list.next()){
         if(list.getElement() instanceof Customer){
@@ -169,13 +142,44 @@ function checkOut(name, movie, movieList, customerList){
         console.log(movie +" is not available.");
     }
 }
-var movieList =new List();
-var customers =new List();
+// fs.readFile( ) ：异步读取文件内容
+// fs.writeFile ( ): 异步写数据到文件中
+var fs = require("fs");
+var readLine = require("readline");
+
+/**
+ * 按行读取文件内容
+ *
+ * @param fileName 文件名路径
+ * @param callback 回调函数
+ *
+ * @return 字符串数组
+ */
+function readFileToArr(fileName, callback) {
+
+    var arr = [];
+    var readObj = readLine.createInterface({
+        input: fs.createReadStream(fileName)
+    });
+
+    // 一行一行地读取文件
+    readObj.on('line', function (line) {
+        arr.push(line);
+    });
+    // 读取完成后,将arr作为参数传给回调函数
+    readObj.on('close', function () {
+        callback(arr);
+    });
+}
 readFileToArr('films.txt', function (arr) {
-    console.log(arr);
-    for(var i =0; i < arr.length;++i){
+    var movieList =new List();
+    var customers =new List();
+    for(var i = 0; i < arr.length;++i){
         movieList.append(arr[i]);
     }
-    console.log(movieList);
+    console.log("Available movies: \n");
 });
+
+
+
 
