@@ -1,5 +1,8 @@
-//修改本章的影碟租赁程序，当一部影片检出后，将其加入一个已租影片列表。每当有客户检出一部影片，都显示该列表中的内容。
+//修改本章的影碟租赁程序，当一部影片检出后，将其加入一个已租影片列表。
+// 每当有客户检出一部影片，都显示该列表中的内容。
 
+//为影碟租赁程序创建一个check-in()函数，
+// 当客户归还一部影片时，将该影片从已租列表中删除，同时添加到现有影片列表中。
 function List(){
     //属性
     this.listSize = 0;
@@ -22,7 +25,7 @@ function List(){
     this.currPos = currPos;
     this.moveTo = moveTo;
     this.getElement = getElement;
-    this.contains = contains;
+    this.contains = contains;//用不了自定义类型
 }
 //给列表添加新元素
 function append(element) {
@@ -73,7 +76,7 @@ function clear() {
 }
 //判断给定值是否在列表中
 function contains(element) {
-    for(let i = 0; i < this.dataStore.length; i++) {
+    for(var i = 0; i < this.dataStore.length; ++i) {
         if(this.dataStore[i] == element) {
             return true;
         }
@@ -132,53 +135,91 @@ function Customer(name, movie){
     this.name = name;
     this.movie = movie;
 }
-function checkOut(name, movie, movieList, customerList){
+function checkOut(name, movie, movieList, customersList,lentOutMovieList){
     if(movieList.contains(movie)){
         var c =new Customer(name, movie);
-        customerList.append(c);
+        customersList.append(c);
         movieList.remove(movie);
+        lentOutMovieList.append(movie);
+        console.log(customersList)
     }
     else{
         console.log(movie +" is not available.");
     }
 }
+function containing(list,nameReturn,movieReturn){
+    for(list.front(); list.currPos()< list.length(); list.next()){
+        if(list.getElement() instanceof Customer){
+            if((list.getElement().name==nameReturn)&&(list.getElement().movie==movieReturn)){
+                return list.currPos;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+}
+function removing(list,nameReturn,movieReturn) {
+    if(containing(list,nameReturn,movieReturn)) {
+        var d=containing(list,nameReturn,movieReturn);
+        list.dataStore.splice(list.dataStore[d], 1);
+        --list.listSize;
+        return true;
+    }
+        else{
+            return false;
+        }
+}
+function checkIn(name, movie, movieList, customersList,lentOutMovieList){
+
+    if(containing(customersList,name,movie)){
+        var d=containing(customersList,name,movie);
+        removing(customersList,name,movie);
+        movieList.append(movie);
+        lentOutMovieList.remove(movie);
+    }
+    else{
+        console.log(movie +" is not our company's.");
+    }
+}
 // fs.readFile( ) ：异步读取文件内容
 // fs.writeFile ( ): 异步写数据到文件中
 var fs = require("fs");
-var readLine = require("readline");
-
-/**
- * 按行读取文件内容
- *
- * @param fileName 文件名路径
- * @param callback 回调函数
- *
- * @return 字符串数组
- */
-function readFileToArr(fileName, callback) {
-
-    var arr = [];
-    var readObj = readLine.createInterface({
-        input: fs.createReadStream(fileName)
-    });
-
-    // 一行一行地读取文件
-    readObj.on('line', function (line) {
-        arr.push(line);
-    });
-    // 读取完成后,将arr作为参数传给回调函数
-    readObj.on('close', function () {
-        callback(arr);
-    });
+var movieList =new List();
+var customersList = new List();
+var lentOutMovieList = new List();
+var data=fs.readFileSync('films.txt','utf-8');
+data=data.split("\n");
+for(var i=0;i<data.length;++i){
+    data[i]=data[i].trim();
+    movieList.append(data[i]);
 }
-readFileToArr('films.txt', function (arr) {
-    var movieList =new List();
-    var customers =new List();
-    for(var i = 0; i < arr.length;++i){
-        movieList.append(arr[i]);
-    }
-    console.log("Available movies: \n");
-});
+console.log("Available movies:");
+displayList(movieList);
+var name="Joe";
+var movie="The Godfather";
+checkOut(name, movie, movieList, customersList,lentOutMovieList);
+name="Lucy";
+movie="Star Wars";
+checkOut(name, movie, movieList, customersList,lentOutMovieList);
+console.log("\nCustomer Rentals: ");
+displayList(customersList);//客户租借列表
+console.log("\nMovies Lent Out: ");
+displayList(lentOutMovieList);//已租影片列表
+
+
+console.log("\n\nAfter Returning...");
+name="Lucy";movie="Star Wars";
+checkIn(name,movie, movieList, customersList,lentOutMovieList);
+console.log("Available movies:");
+displayList(movieList);
+console.log("\nCustomer Rentals: ");
+displayList(customersList);
+console.log("\nMovies Lent Out: ");
+displayList(lentOutMovieList);
+
+// finished
+
 
 
 
