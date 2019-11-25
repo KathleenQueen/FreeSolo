@@ -61,4 +61,28 @@ s.dequeueFirst();
 s.dequeueLast();
 console.log(s.toString());
 
-//finished
+//finished1
+
+//使用前面完成的Deque类来判断一个给定单词是否为回文
+var words = ["dad","racecar","1001","banana"];
+function judgePalindrome(word) {
+    var s = new Deque();
+    for(var i = 0;i < word.length; ++i){
+        s.enqueueLast(word[i]);
+    }
+    while (s.dataStore.length > 1) {
+        if (s.dequeueLast() == s.dequeueFirst()) {
+            ;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+function print(word) {
+    if(judgePalindrome(word)){console.log(word+"是回文")}
+    else {console.log(word+"不是回文")}
+}
+for(var i = 0; i < words.length; ++i){
+    print(words[i]);
+}
