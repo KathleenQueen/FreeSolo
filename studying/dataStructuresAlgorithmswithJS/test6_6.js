@@ -87,3 +87,5 @@ function killOrSave(m,n){
 killOrSave(3,40);//m>2
 console.log("\nAnother");
 killOrSave(5,40);
+
+//finished
