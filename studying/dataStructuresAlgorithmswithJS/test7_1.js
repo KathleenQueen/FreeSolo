@@ -8,8 +8,11 @@ function Dictionary() {
     this.showAll = showAll;
     this.count = count;
     this.clear = clear;
+    this.showSingle = showSingle;
 }
-
+function showSingle(key) {
+    console.log(key+" -> "+this.find(key));
+}
 function add(key, value) {
     this.datastore[key] = value;
 }
@@ -23,23 +26,23 @@ function remove(key) {
 }
 
 function showAll() {
-    Object.keys(this.dataStore).forEach(function (key){
+    for(var key in this.datastore) {
         console.log(key + " -> " + this.datastore[key]);
-    },this);
+    }
 }
 
 function count() {
     var n = 0;
-    Object.keys(this.dataStore).forEach(function (key){
+    for(var key in this.datastore) {
         ++n;
-    },this);
+    }
     return n;
 }
 
 function clear() {
-    Object.keys(this.dataStore).forEach(function (key){
+    for(var key in this.datastore) {
         delete this.datastore[key];
-    },this);
+    }
 }
 var telBook = new Dictionary();
 var fs = require("fs");
@@ -54,8 +57,19 @@ for(var i = 0;i < data.length;++i){
     telBook.add(name,nameTel);
 
 }
+console.log("显示所有电话号码：");
+telBook.showAll();
+console.log("counts:"+telBook.count())
+console.log("显示单个电话号码：");
+var name = "Lucy";
+telBook.showSingle(name);
+console.log("删除Lucy的电话号码后：");
+telBook.remove(name);
+telBook.showAll();
+console.log("counts:"+telBook.count())
+console.log("清空所有的电话号码后：");
+telBook.clear();
+telBook.showAll();
+console.log("counts:"+telBook.count());
 
-
-
-console.log(telBook);
-
+//finished
