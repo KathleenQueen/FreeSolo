@@ -59,14 +59,14 @@ for(var i = 0;i < data.length;++i){
 }
 console.log("显示所有电话号码：");
 telBook.showAll();
-console.log("counts:"+telBook.count())
+console.log("counts:"+telBook.count());
 console.log("显示单个电话号码：");
 var name = "Lucy";
 telBook.showSingle(name);
 console.log("删除Lucy的电话号码后：");
 telBook.remove(name);
 telBook.showAll();
-console.log("counts:"+telBook.count())
+console.log("counts:"+telBook.count());
 console.log("清空所有的电话号码后：");
 telBook.clear();
 telBook.showAll();

@@ -1,0 +1,11 @@
+dog       :a member of the genus Canis (probably descended from the common wolf) that has been domesticated by man since prehistoric times; occurs in many breeds
+cat       :feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats
+rabbit    :any of various burrowing animals of the family Leporidae having long ears and short tails; some domesticated and raised for pets or food
+fox       :alert carnivorous mammal with pointed muzzle and ears and a bushy tail; most are predators that do not hunt in packs
+tiger     :arge feline of forests in most of Asia having a tawny coat with black stripes; endangered
+lion      :large gregarious predatory feline of Africa and India having a tawny coat with a shaggy mane in the male
+frog      :any of various tailless stout-bodied amphibians with long hind limbs for leaping; semiaquatic and terrestrial species
+bird      :warm-blooded egg-laying vertebrates characterized by feathers and forelimbs modified as wings
+tortoise  :usually herbivorous land turtles having clawed elephant-like limbs; worldwide in arid area except Australia and Antarctica
+worm      :any of numerous relatively small elongated soft-bodied animals especially of the phyla Annelida and Chaetognatha and Nematoda and Nemertea and Platyhelminthes; also many insect larvae
+fish      :any of various mostly cold-blooded aquatic vertebrates usually having scales and breathing through gills
