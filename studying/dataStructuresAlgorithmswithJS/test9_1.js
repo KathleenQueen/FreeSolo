@@ -1,8 +1,6 @@
 //修改Set类，使里面的元素按顺序存储，写一段测试代码来测试你的修改。
 
-//感觉有点简单，这个在add的时候对dataStore进行sort操作不就可以了吗?
-//当然这样元素是按顺序储存了，但意义不大，最好是在显示的时候显示sort过的元素
-//下一题用链表我也觉得是最后一步执行一次排序比较好
+//感觉有点简单，这个在add的时候对dataStore进行sort操作应该就可以了
 
 function Set() {
     this.dataStore = [];
@@ -58,10 +56,10 @@ function contains(data) {
 
 function union(set) {
     var tempSet = new Set();
-    for (var i = 0; i < this.dataStore.length; ++i) {
+    for (var i = 0; i < this.size(); ++i) {
         tempSet.add(this.dataStore[i]);
     }
-    for (var i = 0; i < set.dataStore.length; ++i) {
+    for (var i = 0; i < set.size(); ++i) {
         tempSet.add(set.dataStore[i]);
     }
     return tempSet;
@@ -69,7 +67,7 @@ function union(set) {
 
 function intersect(set) {
     var tempSet = new Set();
-    for (var i = 0; i < this.dataStore.length; ++i) {
+    for (var i = 0; i < this.size(); ++i) {
         if (set.contains(this.dataStore[i])) {
             tempSet.add(this.dataStore[i]);
         }
@@ -82,7 +80,7 @@ function subset(set) {
         return false;
     }
     else {
-        for (var i = 0; i < this.dataStore.length; ++i) {
+        for (var i = 0; i < this.size(); ++i) {
             if (set.contains(this.dataStore[i])) {
                 ;
             }
@@ -94,7 +92,7 @@ function subset(set) {
 
 function difference(set) {
     var tempSet = new Set();
-    for (var i = 0; i < this.dataStore.length; ++i) {
+    for (var i = 0; i < this.size(); ++i) {
         if (!set.contains(this.dataStore[i])) {
             tempSet.add(this.dataStore[i]);
         }
