@@ -211,17 +211,13 @@ else {
 //输出为：深度优先算法快于广度优先算法
 
 fs = require("fs");
+fs.unlinkSync("graphForTest11_1&2.txt");
 for (var i = 0; i < g.vertices; ++i) {
-    fs.writeFile("graphForTest11_1&2.txt",i + " -> ",(err)=>{
-        console.log("写入成功")
-    });
-    for (var j = 0; j < this.vertices; ++j) {
-        if (this.adj[i][j] != undefined)
-            fs.writeFile("graphForTest11_1&2.txt",this.adj[i][j] + ' ',(err)=>{
-            console.log("写入成功")
-        });
+    fs.appendFileSync("graphForTest11_1&2.txt", i + " -> ");
+    for (var j = 0; j < g.vertices; ++j) {
+        if (g.adj[i][j] != undefined)
+            fs.appendFileSync("graphForTest11_1&2.txt", g.adj[i][j] + ' ');
     }
-    fs.writeFile("graphForTest11_1&2.txt", " ",(err)=>{
-        console.log("写入成功")
-    });
+    fs.appendFileSync("graphForTest11_1&2.txt", "\n");
 }
+g.showGraph();//同graphForTest11_1&2.txt的输出比较，相同
