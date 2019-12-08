@@ -221,3 +221,5 @@ for (var i = 0; i < g.vertices; ++i) {
     fs.appendFileSync("graphForTest11_1&2.txt", "\n");
 }
 g.showGraph();//同graphForTest11_1&2.txt的输出比较，相同
+
+//finished

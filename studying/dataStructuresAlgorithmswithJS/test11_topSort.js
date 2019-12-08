@@ -1,3 +1,4 @@
+//拓扑排序法
 function Graph(v) {
     this.vertices = v;
     this.vertexList = [];
