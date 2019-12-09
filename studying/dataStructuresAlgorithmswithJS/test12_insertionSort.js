@@ -17,7 +17,7 @@ function CArray(numElements) {
 
 function setData() {
     for (var i = 0; i < this.numElements; ++i) {
-        this.dataStore[i] = Math.floor(Math.random() * (this.numElements+1));
+        this.dataStore[i] = this.numElements - i;/*Math.floor(Math.random() * (this.numElements+1));*/
     }
 }
 
@@ -59,17 +59,22 @@ function insertionSort() {
             --inner;
         }
         this.dataStore[inner] = temp;//this.dataStore[0] = this.dataStore[1];
-        console.log(this.toString());
+        // console.log(this.toString());
     }
 }
 
-var numElements = 10;
+var numElements = 10000;
 var mynums = new CArray(numElements);
 mynums.setData();
-console.log(mynums.toString());
+//console.log(mynums.toString());
 console.log();
+var start = new Date().getTime();
 mynums.insertionSort();
+var stop =  new Date().getTime();
+var elapsed = stop - start;
+console.log(elapsed);
+
 console.log();
-console.log(mynums.toString());
+//console.log(mynums.toString());
 
 //finished

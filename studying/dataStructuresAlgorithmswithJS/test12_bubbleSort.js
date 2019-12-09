@@ -17,7 +17,7 @@ function CArray(numElements) {
 
 function setData() {
     for (var i = 0; i < this.numElements; ++i) {
-        this.dataStore[i] = Math.floor(Math.random() * (this.numElements+1));
+        this.dataStore[i] = /*this.numElements - i;*/Math.floor(Math.random() * (this.numElements+1));
     }
 }
 
@@ -58,17 +58,21 @@ function bubbleSort() {
             //...的循环中把最大的数据挪到outer - 1的位置
             }
         }
-        console.log(this.toString());
+        //console.log(this.toString());
     }
 }
 
-var numElements = 10;
+var numElements = 10000;
 var mynums = new CArray(numElements);
 mynums.setData();
-console.log(mynums.toString());
+//console.log(mynums.toString());
 console.log();
+var start = new Date().getTime();
 mynums.bubbleSort();
+var stop =  new Date().getTime();
+var elapsed = stop - start;
+console.log(elapsed);
 console.log();
-console.log(mynums.toString());
+//console.log(mynums.toString());
 
 //finished

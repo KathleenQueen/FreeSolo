@@ -140,6 +140,4 @@ console.log();
 var elapsed3 = stop3 - start3;
 console.log(elapsed3);
 
-//大数据时第三种希尔排序法所需时间最少
-
 //finished

@@ -20,16 +20,19 @@ function qSort(arr)
     return qSort(left).concat(pivot, qSort(right));
 }
 var a = [];
-for (var i = 0; i < 10; ++i) {
+for (var i = 0; i < 10000; ++i) {
     a[i] = Math.floor((Math.random()*100)+1);//Maximum call stack size exceededs 递归，数据太多会超出栈大小限制,node.js:12561
 }
-console.log(a);
+
+//console.log(a);
 // console.log();
 var start = new Date().getTime();
-console.log(qSort(a));
+qSort(a);
 var stop =  new Date().getTime();
 var elapsed = stop - start;
 console.log(elapsed);
+
+//JavaScript内置的排序函数要快很多
 
 /*
 function computeMaxCallStackSize() {
