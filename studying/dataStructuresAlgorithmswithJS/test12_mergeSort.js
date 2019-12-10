@@ -66,7 +66,10 @@ var start = new Date().getTime();
 mergeSort(nums);
 var stop =  new Date().getTime();
 var elapsed = stop - start;
-console.log(elapsed);
+//console.log(elapsed);
 //console.log(nums);
 
 //finished
+module.exports={
+    mergeArrays,mergeSort
+};
