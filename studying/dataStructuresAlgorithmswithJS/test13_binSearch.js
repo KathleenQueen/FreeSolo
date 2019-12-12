@@ -72,3 +72,5 @@ if (retVal >= 0) {
 else {
     console.log(val + " is not in array.");
 }
+
+//finished

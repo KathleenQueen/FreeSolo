@@ -22,3 +22,5 @@ function dynFib(n) {
     }
 }
 console.log(dynFib(10));
+
+//finished
