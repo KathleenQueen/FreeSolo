@@ -62,7 +62,7 @@ function bubbleSort() {
     }
 }
 
-var numElements = 10000;
+var numElements = 10;
 var mynums = new CArray(numElements);
 mynums.setData();
 //console.log(mynums.toString());

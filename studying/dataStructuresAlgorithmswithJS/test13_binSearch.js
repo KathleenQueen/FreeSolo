@@ -4,7 +4,7 @@ function binSearch(arr, data) {
     var lowerBound = 0;
     while (lowerBound <= upperBound) {
         var mid = Math.floor((upperBound + lowerBound) / 2);
-        console.log("current mid :" + mid)
+        console.log("current mid :" + mid);
         if (arr[mid] < data) {
             lowerBound = mid + 1;
         }

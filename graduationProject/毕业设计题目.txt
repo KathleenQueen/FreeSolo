@@ -1,6 +1,0 @@
-风电站预测与运营关键技术开发
-
-key technology development of forecast and operation technology of wind power station
-
-调研目前风电站预测方法的现状和最新进展，学习机器学习和人工智能算法和工具，讨论最新的人工智能技术用于风电预测的可行性，开发风电预测算法，并用算例进行验证。
-研究风电站运营平台的数据高效管理和数据库设计。

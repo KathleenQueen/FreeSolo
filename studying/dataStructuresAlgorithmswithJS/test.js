@@ -21,3 +21,9 @@ var d = [];
 d=[1,2,3,4,5,6];
 d=[0];
 console.log(d);
+
+function max3(a, b, c){
+    a = a > b ? a : b;
+    return a > c ? a : c;
+}
+console.log(max3(1,5,3));
