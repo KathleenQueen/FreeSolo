@@ -129,23 +129,23 @@ function putsBig(list,n){
     }
 }
 var putInBig = new List();
-var numbers=[3,1,10,7,26,5,39];
-for(var i=0;i<numbers.length;++i){
+var numbers = [3,1,10,7,26,5,39];
+for(var i = 0; i < numbers.length; ++i){
     putInBig.append(numbers[i]);
 }
 console.log(putInBig.dataStore);
-var a=40;//数字
+var a = 40;//数字
  putsBig(putInBig,a);
 console.log(putInBig.dataStore);//append在最后一位添上即可
-function compare(num1,num2) {
-    return num1-num2;
+function compare(num1, num2) {
+    return num1 - num2;
 }
 console.log(putInBig.dataStore.sort(compare));
 //若最后得到的是要排序的，可以先排序再同最后一个元素作比较即可
-var b="Watermelon";//字母
-var Fruits=["Banana","Peach","Orange","Apple"];
+var b = "Watermelon";//字母
+var Fruits = ["Banana","Peach","Orange","Apple"];
 putInBig.clear();
-for(var i=0;i<Fruits.length;++i){
+for(var i = 0; i < Fruits.length; ++i){
     putInBig.append(Fruits[i]);
 }
 console.log(putInBig.dataStore)
