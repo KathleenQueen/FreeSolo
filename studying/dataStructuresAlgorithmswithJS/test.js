@@ -27,3 +27,4 @@ function max3(a, b, c){
     return a > c ? a : c;
 }
 console.log(max3(1,5,3));
+console.log(Array.prototype.push);
