@@ -1,12 +1,12 @@
 //故事源于1世纪的犹太战争。
-//写一段程序将n个人围成一圈，并且第m个人会被杀掉，再重新开始数，计算一圈人中哪两个人最后会存活。
+//写一段程序将n个人围成一圈，第m个人会被杀掉，计算一圈人中哪两个人最后会存活。
 //使用循环链表解决该问题。
 function Node(element) {
     this.element = element;
     this.next = null;
 }
 
-function LList() {
+function CircularLinkedList() {
     this.head = new Node("head");
     this.head.next = this.head;//循环链表修改1
     this.find = find;
@@ -34,7 +34,7 @@ function findPrevious(item) {
 
 function display() {//循环链表修改2
     var currNode = this.head;
-    while (!(currNode.next.element == "head")){
+    while (!(currNode.next == this.head)){
         console.log(currNode.next.element);
         currNode = currNode.next;
     }
@@ -56,14 +56,14 @@ function insert(newElement, item) {
 }
 
 function killOrSave(m,n){
-    var circle= new LList();
+    var circle= new CircularLinkedList();
     circle.insert(1,"head");
     for(var i = 1; i <= n-1; ++i){
         circle.insert(i+1,i);
     }
     var currNode = circle.head.next;//head不算第1个人，此处定位至第1个人
-    console.log("Killed:")
-    while (circle.head.next.next.next != circle.head){
+    console.log("Killed:");
+    while (circle.head.next.next.next != circle.head){//这里是在设置最后存活人数
     var k = 1;
         while (k < m){
             if(currNode.next != circle.head){
@@ -76,7 +76,6 @@ function killOrSave(m,n){
         }
         console.log(currNode.element);
         circle.remove(currNode.element);
-        //重新开始数
         if(currNode.next != circle.head){currNode = currNode.next;}
         else {currNode = currNode.next.next;}
     }
