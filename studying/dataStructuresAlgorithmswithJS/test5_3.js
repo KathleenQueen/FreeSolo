@@ -18,7 +18,10 @@ function front() {
     return this.dataStore[0];
 }
 function back() {
-    return this.dataStore[this.dataStore.length-1];
+    if(this.dataStore.length > 0)
+        return this.dataStore[this.dataStore.length - 1];
+    else
+        return undefined;
 }
 function toString() {
     var retStr = "";
