@@ -1,6 +1,65 @@
 风电站预测与运营关键技术开发
-
 key technology development of forecast and operation technology of wind power station
-
 调研目前风电站预测方法的现状和最新进展，学习机器学习和人工智能算法和工具，讨论最新的人工智能技术用于风电预测的可行性，开发风电预测算法，并用算例进行验证。
 研究风电站运营平台的数据高效管理和数据库设计。
+
+
+数据来源
+学长提供：kaggle competitions download -c GEF2012-wind-forecasting
+风力发电预测问题：提前48小时预测7个风电场每小时的发电量
+https://www.kaggle.com/c/GEF2012-wind-forecasting/data
+
+
+时间序列模型
+https://blog.csdn.net/qq_29831163/article/details/89440215
+
+
+机器学习之Javascript篇: k-Means 聚类算法介绍
+https://www.cnblogs.com/wangweiqiang/p/6023419.html
+你需要的最全面的K-means聚类指南
+https://baijiahao.baidu.com/s?id=1643772188521178944&wfr=spider&for=pc
+一般还是人工值定k值
+/*Inertia评估。Inertia实际上计算簇内所有点到该簇的质心的距离的总和。Inertia越小，我们的聚类越好。
+Dunn Index是簇间距离的最小值与簇内距离的最大值之比。我们希望最大化Dunn Index，Dunn Index的值越大，簇就越好。*/
+K-means算法的主要目的是最小化点与它们各自的簇质心之间的距离之和。
+停止K-means聚类的标准：
+基本上有三种停止标准可用于停止K-means算法：
+新形成的簇的质心不会改变/数据点保留在同一个簇中/达到最大迭代次数
+
+
+
+Node.js 里用 D3.js 来作图
+http://www.360doc.com/content/18/0905/15/21698478_784111659.shtml
+绘制一个圆
+var d3 = require('d3');
+var jsdom = require('jsdom');
+var document = jsdom.jsdom();
+var svg = d3.select(document.body).append('svg')
+    .attr('xmlns', 'http://www.w3.org/2000/svg')
+    .attr('width', 500)
+    .attr('height', 500);
+svg.append("circle")
+    .attr("cx",250)
+    .attr("cy",250)
+    .attr("r",250)
+    .attr("fill","Red");
+console.log(document.body.innerHTML);
+编辑好后，保存为 drawCircle.js，当然什么名字都可以。
+导出SVG图
+node drawCircle.js > mycircle.svg
+将 drawCircle.js 输出的内容（console.log 里的内容）重定向到 mycircle.svg。
+最后得到生成的SVG图：mycircle.svg
+
+
+canvas相关知识
+https://www.cnblogs.com/fly_dragon/p/10416034.html
+
+
+10个机器学习的JavaScript示例
+https://blog.csdn.net/r1unw1w/article/details/78736158
+
+W3Cschool - tensorflowjs
+https://www.w3cschool.cn/tensorflowjs/tensorflowjs-ezy32q27.html
+
+官方- tensorflowjs
+https://codelabs.developers.google.com/codelabs/tfjs-training-regression/index.html#1
