@@ -58,8 +58,30 @@ https://www.cnblogs.com/fly_dragon/p/10416034.html
 10个机器学习的JavaScript示例
 https://blog.csdn.net/r1unw1w/article/details/78736158
 
+
 W3Cschool - tensorflowjs
 https://www.w3cschool.cn/tensorflowjs/tensorflowjs-ezy32q27.html
 
+
 官方- tensorflowjs
 https://codelabs.developers.google.com/codelabs/tfjs-training-regression/index.html#1
+
+
+机器学习教程
+https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate
+
+
+
+浙江大学毕业设计/论文 LaTeX 模板
+https://github.com/TheNetAdmin/zjuthesis
+
+深度学习--训练集验证集测试集合理划分比例
+https://blog.csdn.net/wenqiwenqi123/article/details/79232536
+
+
+
+k-means
+https://learn.ml5js.org/docs/#/reference/kmeans
+
+官方API
+https://js.tensorflow.org/api/latest/#data.zip

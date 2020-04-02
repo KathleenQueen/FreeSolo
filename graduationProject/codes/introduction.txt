@@ -1,0 +1,34 @@
+“train.csv”包含训练数据：
+
+-第一列（“日期”）是时间戳，在随后的列中给出了每小时风电测量的日期和时间。例如，“ 2009070812”是2009年7月8日12:00；
+
+-以下7列（“ wp1”至“ wp7”）收集了7个风电场的标准化风能测量值。对其进行归一化，以便采用0到1之间的值，以使风电场无法被识别。
+
+同时，还为那些可能想要使用它们的人提供了带有解释变量（天气预报）的文件。例如，文件“ windforecasts_wf1”包含风电场1的风向预报。在这些文件中：
+
+-第一列（“日期”）是给出发布预测的日期和时间的时间戳。例如，“ 2009070812”是2009年7月8日12:00；
+
+-第二列（“ hors”）用于预测的提前期。例如，如果“日期” = 2009070812和“hors” = 1，则预测是针对2009年7月8日13:00
+
+-接下来的4列（“ u”，“ v”，“ ws”和“ wd”）是预报本身，前两个是纬向和经向分量，而后两个是相应的风速和风向。
+
+最后，文件“ benchmark.csv”提供了持久性预测方法的示例预测结果（“所见即所得”）。该文件还提供了应严格遵循的结果提交模板。
+
+请注意，“ benchmark.csv”的第一列称为“ id”，并且每一行包含唯一的标识符。其他8列与“ train.csv”相同。 提交结果时，请确保您的文件总共包含9列，格式与“ benchmark.csv”相同。
+"train.csv" contains the training data:
+
+- the first column ("date") is a timestamp giving date and time of the hourly wind power measurements in following columns. For instance "2009070812" is for the 8th of July 2009 at 12:00;
+
+- the following 7 columns ("wp1" to "wp7") gather the normalized wind power measurements for the 7 wind farms. They are normalized so as to take values between 0 and 1 in order for the wind farms not to be recognizable.
+
+In parallel, files with explanatory variables (wind forecasts) are also provided for those who may want to use them. For example, the file "windforecasts_wf1" contains the wind forecasts for the wind farm 1. In these files:
+
+- the first column ("date") is a timestamp giving date and time at which the forecasts are issued. For instance "2009070812" is for the 8th of July 2009 at 12:00;
+
+- the second column ("hors") is for the lead time of the forecast. For instance if "date" = 2009070812 and "hors" = 1, the forecast is for the 8th of July 2009 at 13:00
+
+- the following 4 columns ("u", "v", "ws" and "wd") are the forecasts themselves, the first two being the zonal and meridional wind components, while the following two are corresponding wind speed and direction.
+
+Finally, the file "benchmark.csv" provide example forecast results from the persistence forecast method ("what you see is what you get"). This file also gives a template for submission of results that should be strictly followed.
+
+Please notice that the first column of "benchmark.csv" is called "id" and contains unique identifier for each row. The other 8 columns are the same as "train.csv". When submitting the results, please make sure that your file includes totally 9 columns in the same format as "benchmark.csv".
