@@ -1,150 +1,76 @@
-// const csvUrl = 'train.csv';
-//
-// async function run() {
-//     const csvDataset = tf.data.csv(
-//         csvUrl, {
-//             hasHeader:true,
-//             columnConfigs: {
-//                 date:{
-//                     required:true
-//                 },
-//                 wp1: {
-//                     required:true,
-//                     isLabel: true
-//                 }
-//             },
-//             configuredColumnsOnly:true,
-//         });
-//     // Number of features is the number of column names minus one for the label
-//     // column.
-//     const numOfFeatures = (await csvDataset.columnNames()).length - 1;
-//     var values = csvDataset
-//         .map(function({key, value}) {//xs-ys,key-value
-//             // Convert xs(features) and ys(labels) from object form (keyed by column name) to array form.
-//             console.log({
-//                 xs: Object.values(key), ys: Object.values(value)
-//             });
-//             return {xs: Object.values(key), ys: Object.values(value)};
-//         });
-//     console.log(Object.entries(csvDataset))
-//     //for(var i in csvDataset) console.log(csvDataset[i]);
-//     console.log()
-//     //console.log(t);
-//     // tfvis.render.scatterplot(//散点图
-//     //     {name: 'Horsepower v MPG'},
-//     //     {t},
-//     //     {
-//     //         xLabel: 'Horsepower',
-//     //         yLabel: 'MPG',
-//     //         height: 300
-//     //     }
-//     // );
-//
-// // Prepare the Dataset for training.
-//     const flattenedDataset =
-//         csvDataset
-//             .map(({xs, ys}) =>
-//             {
-//                 // Convert xs(features) and ys(labels) from object form (keyed by
-//                 // column name) to array form.
-//                 return {xs:Object.values(xs), ys:Object.values(ys)};
-//             })
-//             .batch(10);
-//
-//     // Define the model.
-//     const model = tf.sequential();
-//     model.add(tf.layers.dense({
-//         inputShape: [numOfFeatures],
-//         units: 1
-//     }));
-//     model.compile({
-//         optimizer: tf.train.sgd(0.000001),
-//         loss: 'meanSquaredError'
-//     });
-//
-//     // Fit the model using the prepared Dataset
-//     return model.fitDataset(flattenedDataset, {
-//         epochs: 10,
-//         callbacks: {
-//             onEpochEnd: async (epoch, logs) => {
-//                 console.log(epoch + ':' + logs.loss);
-//             }
-//         }
-//     });
+const tf = require("@tensorflow/tfjs");
+const csvUrl =
+        'https://kathleenqueen.work/graduationProject/codes/train.csv';
 
-
-
-
-    //
-    const csvUrl2 =
-        'train.csv';
-
-    async function run2() {
-        // We want to predict the column "medv", which represents a median value of
-        // a home (in $1000s), so we mark it as a label.
+    async function run() {
         const csvDataset = tf.data.csv(
-            csvUrl2, {
+            csvUrl, {
                 columnConfigs: {
-                    date:{},
+                    date:{
+                        isLabel:false
+                    },
                     wp1: {
                         isLabel: true
                     }
                 },
                 configuredColumnsOnly:true,
             });
+        const fd = csvDataset.toArray();
 
+        fd.then(value => console.log(value));
+        // csvDataset.base.map(({xs,ys}) =>
+        // {
+        //     console.log({xs:Object.values(xs),ys:Object.values(ys)}) ;
+        // });
+        console.log(typeof csvDataset);
         // Number of features is the number of column names minus one for the label
         // column.
         const numOfFeatures = (await csvDataset.columnNames()).length - 1;
-
-        // Prepare the Dataset for training.
-        const flattenedDataset =
-            csvDataset
-                .map(({xs, ys}) =>
+        //console.log(csvDataset.data)
+        var t = csvDataset.fullColumnNames[0];
+        //console.log(t)
+        //console.log(csvDataset.columnConfigs[t]);
+        //const dataset = csvDataset.toArray();
+       // console.log(dataset);
+        var xsDataset =
+            csvDataset.map(({xs,ys}) =>
                 {
                     // Convert xs(features) and ys(labels) from object form (keyed by
                     // column name) to array form.
-                    return {xs:date_num(Object.values(xs)), ys:Object.values(ys)};
+                    return {xs:Object.values(xs)};
                 });
-             //   .batch(10);
 
-        const a =
-            flattenedDataset.mapAsync(({xs,ys}) => new Promise(function(resolve){
-                setTimeout(() => {
-                    resolve({xs:xs,ys:ys});
-                }, Math.random()*1000 + 500);
-            }));
-       flattenedDataset.forEachAsync(e => console.log(e))
-        //console.log(await a.toArray());
-        //console.log(valuesX);
-    // //console.log(datas);
-    //  datas.then(function (val) {
-    //      const values = val.map(data => ({
-    //          x: data.xs,
-    //          y: data.ys,
-    //      }));
-    //      console.log(values);
-    //      tfvis.render.scatterplot(//散点图
-    //          {name: 'Horsepower v MPG'},
-    //          {values},
-    //          {
-    //              xLabel: 'Horsepower',
-    //              yLabel: 'MPG',
-    //              width:600,
-    //              height: 300,
-    //              xAxisDomain:[2009.6, 2012.8],
-    //          }
-    //      );
-    //  });
-        const t = [];
-        for(i = 0;i<1100;i++) t[i] = i ;
-        const m = tf.data.array(t);
-        console.log(await a.toArray());
+
+        var ysDataset =
+            csvDataset.map(({xs,ys}) =>
+                {
+                    // Convert xs(features) and ys(labels) from object form (keyed by
+                    // column name) to array form.
+                    return {ys:Object.values(ys)};
+                });
+        //console.log(xsDataset,ysDataset)
+        const f = csvDataset.map(({xs,ys}) =>
+        {
+            // Convert xs(features) and ys(labels) from object form (keyed by
+            // column name) to array form.
+            return {xs:Object.values(xs),ys:Object.values(ys)};
+        });
+        /*
+        tfvis.render.scatterplot(
+            {name: 'Model Predictions vs Original Data'},
+            {values: [xsDataset, ysDataset]},
+            {
+                xLabel: 'Horsepower',
+                yLabel: 'MPG',
+                height: 300
+            }
+        );
+        */
 
     }
 
 
- run2();
+    run();
 function date_num(date) {//2009 07 01 00
     var year = date / 1000000;//2009
     var monthDayHour = date % 1000000 ;
@@ -155,4 +81,17 @@ function date_num(date) {//2009 07 01 00
         return year + (month + (day + hour/24)/30)/12;
 }
 
-//为何tf.toString只能处理1000个数据
+
+
+/*async iterator(): Promise<LazyIterator<string>> {
+    const inputIterator = await this.input.iterator();
+const utf8Iterator = inputIterator.decodeUTF8();
+const lineIterator = utf8Iterator.split('\n').map(line => {
+    // Windows/DOS format text file has extra line breaker at the end of line.
+    if (line.endsWith('\r')) {
+        line = line.slice(0, -1);
+    }
+    return line;
+});
+return lineIterator;
+}*/
