@@ -11,7 +11,7 @@ async function getData() {
     //.map建立新数组
     const cleaned = carsData.map(car => ({
         mpg: car.Miles_per_Gallon,
-        horsepower: car.Horsepower,
+        horsepower: car.Horsepower
     })).filter(car => (car.mpg != null && car.horsepower != null));
     return cleaned;
 }
@@ -137,7 +137,7 @@ function testModel(model, inputData, normalizationData) {
     // 我们通过与前面所做的最小-最大缩放相反的操作来对数据进行非标准化。
     const [xs, preds] = tf.tidy(() => {
         const xs = tf.linspace(0, 1, 100);
-        console.log(xs)
+        console.log(xs);
         const preds = model.predict(xs.reshape([100, 1]));
         const unNormXs = xs
             .mul(inputMax.sub(inputMin))

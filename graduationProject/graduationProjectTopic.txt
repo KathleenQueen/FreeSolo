@@ -71,7 +71,6 @@ https://codelabs.developers.google.com/codelabs/tfjs-training-regression/index.h
 https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate
 
 
-
 浙江大学毕业设计/论文 LaTeX 模板
 https://github.com/TheNetAdmin/zjuthesis
 
@@ -79,9 +78,21 @@ https://github.com/TheNetAdmin/zjuthesis
 https://blog.csdn.net/wenqiwenqi123/article/details/79232536
 
 
-
 k-means
 https://learn.ml5js.org/docs/#/reference/kmeans
 
 官方API
 https://js.tensorflow.org/api/latest/#data.zip
+
+d3.csv
+https://d3-wiki.readthedocs.io/zh_CN/master/CSV/
+
+
+机器学习研究学报
+http://proceedings.mlr.press/v9/glorot10a.html
+
+DNN
+https://zhuanlan.zhihu.com/p/29815081
+
+提供论文与代码的网站
+https://paperswithcode.com/
