@@ -44,7 +44,7 @@ function betterHash(string) {
     }
     total = total % this.table.length;
     if (total < 0) {
-        total += this.table.length-1;
+        total += this.table.length - 1;
     }
     return parseInt(total);
 }
