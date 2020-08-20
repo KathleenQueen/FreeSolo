@@ -61,7 +61,7 @@ function ShellSort1() {
     while (h >= 1) {
         for (var i = h; i < N; i++) {
             for (var j = i; j >= h && this.dataStore[j] < this.dataStore[j-h]; j -= h) {
-                swap(this.dataStore, j, j-h);
+                [this.dataStore[j],this.dataStore[j-h]] = [this.dataStore[j-h],this.dataStore[j]];
             }
         }
         h = (h-1)/3;
@@ -107,7 +107,7 @@ function setGaps(arr) {
     this.gaps = arr;
 }
 
-var numElements = 10000000;
+var numElements = 1000;
 var mynums = new CArray(numElements);
 mynums.setData();
 //console.log(mynums.toString());
@@ -116,7 +116,7 @@ var start = new Date().getTime();
 mynums.ShellSort1();
 var stop =  new Date().getTime();
 console.log();
-//console.log(mynums.toString());
+console.log(mynums.toString());
 var elapsed = stop - start;
 console.log(elapsed);
 
