@@ -55,7 +55,6 @@ for(var i = 0;i < data.length;++i){
     name = name.join("").trim();
     nameTel=nameTel.join("");
     telBook.add(name,nameTel);
-
 }
 console.log("显示所有电话号码：");
 telBook.showAll();

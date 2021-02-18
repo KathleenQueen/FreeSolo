@@ -15,14 +15,14 @@ function Graph(v) {
     this.vertexList = [];
     this.edges = 0;
     this.adj = [];
-    for (var i = 0; i < this.vertices; ++i) {
+    for (let i = 0; i < this.vertices; ++i) {
         this.adj[i] = [];
     }
     this.addEdge = addEdge;
     this.showGraph = showGraph;
     this.dfs = dfs;
     this.marked = [];
-    for (var i = 0; i < this.vertices; ++i) {
+    for (let i = 0; i < this.vertices; ++i) {
         this.marked[i] = false;
     }
     this.bfs = bfs;
@@ -33,12 +33,12 @@ function Graph(v) {
 }
 
 function topSort() {
-    var stack = [];
-    var visited = [];
-    for (var i = 0; i < this.vertices; i++) {
+    let stack = [];
+    let visited = [];
+    for (let i = 0; i < this.vertices; i++) {
         visited[i] = false;
     }
-    for (var i = 0; i < this.vertices; i++) {
+    for (let i = 0; i < this.vertices; i++) {
         if (visited[i] == false) {
             topSortHelper(this.adj, i, visited, stack);
         }
@@ -50,8 +50,8 @@ function topSort() {
 
 function topSortHelper(arr, v, visited, stack) {
     visited[v] = true;
-    for (var j = 0; arr[v][j] != undefined; j++){
-        var t = arr[v][j];
+    for (let j = 0; arr[v][j] != undefined; j++){
+        let t = arr[v][j];
         if(!visited[t]){
             topSortHelper(arr,t,visited,stack)
         }
@@ -69,9 +69,9 @@ function addEdge(v,w) {
 
 //display numbers
 function showGraph() {
-   for (var i = 0; i < this.vertices; ++i) {
+   for (let i = 0; i < this.vertices; ++i) {
       console.log(i + " -> ");
-      for (var j = 0; j < this.vertices; ++j) {
+      for (let j = 0; j < this.vertices; ++j) {
          if (this.adj[i][j] != undefined)
             console.log(this.adj[i][j] + ' ');
       }
@@ -108,15 +108,16 @@ function dfs(v) {
 }
 
 function bfs(s) {
-    var queue = [];
+    let queue = [];
     this.marked[s] = true;
-    queue.unshift(s);
+    queue.push(s);
+    let item;
     while (queue.length > 0) {
-        var v = queue.shift();
+        let v = queue.shift();
         if (this.adj[v] != undefined) {
             console.log("Visited vertex: " + v);
         }
-        for (var j = 0; j < this.adj[v].length; ++j) {
+        for (let j = 0; j < this.adj[v].length; ++j) {
             item = this.adj[v][j];
             if (!this.marked[item]) {
                 //this.edgeTo[item] = v;
@@ -133,11 +134,11 @@ function hasPathTo(v) {
 }
 
 function pathTo(v) {
-    var source = 0;
+    let source = 0;
     if (!this.hasPathTo(v)) {
         return undefined;
     }
-    var path = [];
+    let path = [];
     for (var i = v; i != source; i = this.edgeTo[i]) {
         path.push(i);
     }
@@ -196,7 +197,7 @@ var time4 = new Date();
 */
 
 console.log(time1.getTime()+" "+time2.getTime()+" "+time3.getTime())
-var timeBfs = time2.getTime() - time1.getTime();//ms
+let timeBfs = time2.getTime() - time1.getTime();//ms
 var timeDfs = time4.getTime() - time3.getTime();
 console.log(timeBfs  + ":" + timeDfs);
 if(timeBfs > timeDfs){
@@ -212,9 +213,9 @@ else {
 
 fs = require("fs");
 fs.unlinkSync("graphForTest11_1&2.txt");
-for (var i = 0; i < g.vertices; ++i) {
+for (let i = 0; i < g.vertices; ++i) {
     fs.appendFileSync("graphForTest11_1&2.txt", i + " -> ");
-    for (var j = 0; j < g.vertices; ++j) {
+    for (let j = 0; j < g.vertices; ++j) {
         if (g.adj[i][j] != undefined)
             fs.appendFileSync("graphForTest11_1&2.txt", g.adj[i][j] + ' ');
     }

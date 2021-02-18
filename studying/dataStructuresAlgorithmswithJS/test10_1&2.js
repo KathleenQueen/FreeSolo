@@ -34,7 +34,8 @@ function countData(data) {
   var node = this.find(data);
   if (node != null) {
     return node.count;
-  } else {
+  }
+  else {
     return 0;
   }
 }
@@ -67,7 +68,8 @@ function insert(data) {
   var n = new Node(data, null, null);
   if (this.root == null) {
     this.root = n;
-  } else {
+  }
+  else {
     var current = this.root;
     var parent;
     while (true) {
@@ -78,7 +80,8 @@ function insert(data) {
           parent.left = n;
           break;
         }
-      } else {
+      }
+      else {
         current = current.right;
         if (current == null) {
           parent.right = n;
@@ -134,7 +137,8 @@ function find(data) {
   while (current.data != data) {
     if (data < current.data) {
       current = current.left;
-    } else {
+    }
+    else {
       current = current.right;
     }
     if (current == null) {
@@ -147,7 +151,8 @@ function find(data) {
 function getSmallest(node) {
   if (node.left == null) {
     return node;
-  } else {
+  }
+  else {
     return getSmallest(node.left);
   }
 }
@@ -182,10 +187,12 @@ function removeNode(node, data) {
     node.data = tempNode.data;
     node.right = removeNode(node.right, tempNode.data);
     return node;
-  } else if (data < node.data) {
+  }
+  else if (data < node.data) {
     node.left = removeNode(node.left, data);
     return node;
-  } else {
+  }
+  else {
     node.right = removeNode(node.right, data);
     return node;
   }
@@ -220,7 +227,8 @@ var value = 16;
 var found = nums.find(value);
 if (found != null) {
   console.log("Found " + value + " in the BST.");
-} else {
+}
+else {
   console.log(value + " was not found in the BST.");
 }
 
